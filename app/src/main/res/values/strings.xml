@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Thuoc</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_shop">Trang chu</string>
+    <string name="title_gifts">Uu Dai</string>
+    <string name="title_cart">Gio Hang</string>
+    <string name="title_thongbao">ThongBao</string>
+    <string name="title_taikhoan">Tai Khoan</string>
+</resources>

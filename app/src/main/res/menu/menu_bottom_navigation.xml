@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_shop"
+        android:icon="@drawable/home"
+        android:title="@string/title_shop" />
+
+    <item
+        android:id="@+id/navigation_gifts"
+        android:icon="@drawable/uudai"
+        android:title="@string/title_gifts" />
+
+    <item
+        android:id="@+id/navigation_cart"
+        android:icon="@drawable/giohang"
+        android:title="@string/title_cart" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/thongbao"
+        android:title="@string/title_thongbao" />
+    <item
+        android:id="@+id/navigation_taikhoan"
+        android:icon="@drawable/acount"
+        android:title="@string/title_taikhoan" />
+</menu>
