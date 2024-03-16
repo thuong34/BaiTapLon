@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         list =getListproduct();
         productadapter = new productAdapter(list,MainActivity.this);
         rvproduct.setAdapter(productadapter);
-
+        System.out.println("Da them 1 dong moi");
 
     }
 
