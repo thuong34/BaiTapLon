@@ -3,19 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background"
     tools:context=".fragment.Home">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Trang chủ"
-        android:layout_centerInParent="true"
-        android:textColor="@color/red"
-        android:textSize="30sp">
+    <RelativeLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="118dp"
+        android:background="@drawable/background"
+        >
+        <TextView
+            android:id="@+id/loaithuoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loại Thuốc"
+            android:textSize="30sp"
+            android:textColor="#FF0051"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            >
+        </TextView>
 
-    </TextView>
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_item"
+            android:layout_marginTop="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botron"
+            android:textAlignment="center"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search here...."
+
+            />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvproduct"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        android:background="@color/white"
+
+        />
+    <!--        android:layout_above="@+id/bottom_navigation"-->
+
 
 
 

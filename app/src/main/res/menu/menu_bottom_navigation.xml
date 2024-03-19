@@ -2,26 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_shop"
+        android:id="@+id/trangchu"
         android:icon="@drawable/home"
         android:title="@string/title_shop" />
 
     <item
-        android:id="@+id/navigation_gifts"
+        android:id="@+id/uudai"
         android:icon="@drawable/uudai"
         android:title="@string/title_gifts" />
 
     <item
-        android:id="@+id/navigation_cart"
+        android:id="@+id/giohang"
         android:icon="@drawable/giohang"
         android:title="@string/title_cart" />
 
     <item
-        android:id="@+id/navigation_profile"
+        android:id="@+id/thongbao"
         android:icon="@drawable/thongbao"
         android:title="@string/title_thongbao" />
     <item
-        android:id="@+id/navigation_taikhoan"
+        android:id="@+id/taikhoan"
         android:icon="@drawable/acount"
         android:title="@string/title_taikhoan" />
 </menu>

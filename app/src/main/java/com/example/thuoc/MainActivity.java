@@ -5,20 +5,27 @@ import android.os.Bundle;
 
 import android.view.Menu;
 
+import android.view.MenuItem;
 import android.widget.Toast;
 
 
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.thuoc.adapter.productAdapter;
+import com.example.thuoc.fragment.Home;
+import com.example.thuoc.fragment.fragmentAdapter;
 import com.example.thuoc.model.product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
@@ -27,77 +34,81 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    SearchView searchView;
 
-    RecyclerView rvproduct;
-    ArrayList<product> list;
-    productAdapter productadapter;
     BottomNavigationView mNavigationView;
+    ViewPager viewpager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        rvproduct = findViewById(R.id.rvproduct);
         mNavigationView = findViewById(R.id.bottom_navigation);
+        viewpager = findViewById(R.id.viewpager);
+        fragmentAdapter adapter = new fragmentAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        viewpager.setAdapter(adapter);
+        viewpager.setOffscreenPageLimit(2);
 
-        searchView=findViewById(R.id.search_item);
-        searchView.clearFocus();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+        viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                filterList(newText);
-                return true;
+            public void onPageSelected(int position) {
+                switch (position)
+                {
+                    case 0:
+                        mNavigationView.getMenu().findItem(R.id.trangchu).setChecked(true);
+                        Home home = (Home) viewpager.getAdapter().instantiateItem(viewpager,0);
+                        home.reloadData();
+                        break;
+                    case 1:
+                        mNavigationView.getMenu().findItem(R.id.uudai).setChecked(true);
+                        break;
+                    case 2:
+                        mNavigationView.getMenu().findItem(R.id.giohang).setChecked(true);
+                        break;
+                    case 3:
+                        mNavigationView.getMenu().findItem(R.id.thongbao).setChecked(true);
+                        break;
+                    case 4:
+                        mNavigationView.getMenu().findItem(R.id.taikhoan).setChecked(true);
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
-        list =getListproduct();
-        productadapter = new productAdapter(list,MainActivity.this);
-        rvproduct.setAdapter(productadapter);
-        System.out.println("Da them 1 dong moi");
-
-    }
-
-
-    private void filterList(String newText) {
-        ArrayList<product> filterList = new ArrayList<product>();
-        for(product itemproduct : list){
-            if(itemproduct.getName().toLowerCase().contains(newText.toLowerCase())){
-                filterList.add(itemproduct);
+        mNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+               if(item.getItemId()==R.id.trangchu){
+                   viewpager.setCurrentItem(0);
+               }
+                else if(item.getItemId()==R.id.uudai){
+                   viewpager.setCurrentItem(1);
+               }
+               else if(item.getItemId()==R.id.giohang){
+                   viewpager.setCurrentItem(2);
+               }
+               else if(item.getItemId()==R.id.thongbao){
+                   viewpager.setCurrentItem(3);
+               }
+               else if(item.getItemId()==R.id.taikhoan){
+                   viewpager.setCurrentItem(4);
+               }
+                return true;
             }
-        }
-        if(filterList.isEmpty()){
-            Toast.makeText(this,"Không tìm thấy dữ liệu",Toast.LENGTH_LONG).show();
-        }else{
-            productadapter.setFilterList(filterList);
-        }
 
-    }
+        });
 
-    private ArrayList<product> getListproduct() {
-        ArrayList<product> lst = new ArrayList<>();
-       for (int i = 0; i < 10; i++) {
-            lst.add(new product(9, "HAPACAL", 30.5F, R.drawable.thuoc9));
-            lst.add(new product(8, "PANADOL", 15.6F, R.drawable.thuoc8));
-            lst.add(new product(7, "CHELA-FERR FORTE", 48.2F, R.drawable.thuoc7));
-            lst.add(new product(6, "GMP-WHO", 35.6F, R.drawable.thuoc6));
-            lst.add(new product(5, "MOLMUPIRAVIR", 98.7F, R.drawable.thuoc5));
-            lst.add(new product(4, "AZITHROMYCIN", 87.6F, R.drawable.thuoc4));
-            lst.add(new product(3, "DEXAMETHASONE", 145.66F, R.drawable.thuoc3));
-            lst.add(new product(2, "TERPIN-CODEIN", 120.4F, R.drawable.thuoc2));
-            lst.add(new product(1, "POGANIC", 90.5F, R.drawable.thuoc1));
-            lst.add(new product(0, "ĐÔNG Y", 80.6F, R.drawable.thuoc0));
-        }
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
-        rvproduct.setLayoutManager(mLayoutManager);
-        productAdapter productadapter = new productAdapter(lst,MainActivity.this);
-        rvproduct.setAdapter(productadapter);
-        return lst;
-    }
-}
+
+}}

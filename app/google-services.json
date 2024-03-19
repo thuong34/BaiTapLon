@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "909925869871",
+    "project_id": "baitap-17630",
+    "storage_bucket": "baitap-17630.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909925869871:android:41dbdf3e85e96f7ff799da",
+        "android_client_info": {
+          "package_name": "com.example.thuoc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo7mVI1dDziwmHhp1ntQhy5jjjqWO3NTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

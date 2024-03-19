@@ -46,7 +46,7 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         product product = list.get(position);
         holder.tenthuoc.setText(product.getName());
-        holder.gia.setText(String.valueOf(product.getPrice()));
+        holder.gia.setText(String.valueOf(product.getPrice()+ " VND"));
         holder.img.setImageResource(product.getRes());
     }
 
