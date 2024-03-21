@@ -1,6 +1,7 @@
 package com.example.thuoc.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +9,14 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thuoc.MainActivity;
 import com.example.thuoc.R;
+import com.example.thuoc.activity.chitietactivity;
 import com.example.thuoc.model.product;
 
 import java.util.ArrayList;
@@ -46,8 +49,18 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         product product = list.get(position);
         holder.tenthuoc.setText(product.getName());
-        holder.gia.setText(String.valueOf(product.getPrice()+ " VND"));
+        holder.gia.setText((int)product.getPrice() + " đ");
+
+//        holder.gia.setText(String.valueOf(product.getPrice()+ " đ"));
         holder.img.setImageResource(product.getRes());
+
+        holder.itemView.setOnClickListener(v -> {
+//            Toast.makeText(context, product.getName(), Toast.LENGTH_SHORT).show();
+            Intent detailIntent = new Intent(context, chitietactivity.class);
+            detailIntent.putExtra("thuoc", product);
+            context.startActivity(detailIntent);
+        });
+
     }
 
     @Override

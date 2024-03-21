@@ -8,4 +8,6 @@
     <string name="title_cart">Gio Hang</string>
     <string name="title_thongbao">ThongBao</string>
     <string name="title_taikhoan">Tai Khoan</string>
+    <string name="gi_35000">Giá: 35000 đ</string>
+    <string name="th_m_v_o_gi_h_ng">Thêm vào giỏ hàng</string>
 </resources>

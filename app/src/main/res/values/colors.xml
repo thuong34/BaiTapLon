@@ -9,4 +9,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="bgBottomNavigation">#fe485a</color>
     <color name="tim">#673AB7</color>
+    <color name="gray">#cccccc</color>
 </resources>

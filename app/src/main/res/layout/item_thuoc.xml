@@ -47,25 +47,13 @@
                 <TextView
                     android:layout_weight="4"
                     android:id="@+id/tv_gia"
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:textColor="#5A5A55"
+                    android:gravity="center"
+                    android:textColor="@color/red"
                     android:padding="10dp">
 
                 </TextView>
-
-                <ImageView
-                    android:layout_weight="6"
-                    android:id="@+id/tien"
-                    android:layout_marginRight="60dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-
-                    android:src="@drawable/tien">
-
-                </ImageView>
             </LinearLayout>
 
 

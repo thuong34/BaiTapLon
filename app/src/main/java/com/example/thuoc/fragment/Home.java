@@ -23,15 +23,10 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Home#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class Home extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -98,6 +93,7 @@ public class Home extends Fragment {
         list =getListproduct();
         productadapter = new productAdapter(list, this.getContext());
         rvproduct.setAdapter(productadapter);
+//        rvproduct.setLayoutManager(new GridLayoutManager(this, 2));
         return myview;
     }
     public void reloadData(){
@@ -121,16 +117,16 @@ public class Home extends Fragment {
     private ArrayList<product> getListproduct() {
         ArrayList<product> lst = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            lst.add(new product(9, "HAPACAL", 30.5F, R.drawable.thuoc9));
-            lst.add(new product(8, "PANADOL", 15.6F, R.drawable.thuoc8));
-            lst.add(new product(7, "CHELA-FERR FORTE", 48.2F, R.drawable.thuoc7));
-            lst.add(new product(6, "GMP-WHO", 35.6F, R.drawable.thuoc6));
-            lst.add(new product(5, "MOLMUPIRAVIR", 98.7F, R.drawable.thuoc5));
-            lst.add(new product(4, "AZITHROMYCIN", 87.6F, R.drawable.thuoc4));
-            lst.add(new product(3, "DEXAMETHASONE", 145.66F, R.drawable.thuoc3));
-            lst.add(new product(2, "TERPIN-CODEIN", 120.4F, R.drawable.thuoc2));
-            lst.add(new product(1, "POGANIC", 90.5F, R.drawable.thuoc1));
-            lst.add(new product(0, "ĐÔNG Y", 80.6F, R.drawable.thuoc0));
+            lst.add(new product(9, "HAPACAL", 30500, R.drawable.thuoc9));
+            lst.add(new product(8, "PANADOL", 15600, R.drawable.thuoc8));
+            lst.add(new product(7, "CHELA-FERR FORTE", 48200, R.drawable.thuoc7));
+            lst.add(new product(6, "GMP-WHO", 35600, R.drawable.thuoc6));
+            lst.add(new product(5, "MOLMUPIRAVIR", 98700, R.drawable.thuoc5));
+            lst.add(new product(4, "AZITHROMYCIN", 87600, R.drawable.thuoc4));
+            lst.add(new product(3, "DEXAMETHASONE", 14566, R.drawable.thuoc3));
+            lst.add(new product(2, "TERPIN-CODEIN", 120400, R.drawable.thuoc2));
+            lst.add(new product(1, "POGANIC", 90500, R.drawable.thuoc1));
+            lst.add(new product(0, "ĐÔNG Y", 80600, R.drawable.thuoc0));
         }
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this.getContext(), 1);
