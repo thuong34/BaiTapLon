@@ -1,8 +1,10 @@
 package com.example.thuoc.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -11,16 +13,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.thuoc.MainActivity;
 import com.example.thuoc.R;
 import com.example.thuoc.adapter.productAdapter;
 import com.example.thuoc.model.product;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.checkerframework.checker.units.qual.A;
+
 import java.util.ArrayList;
 
 
@@ -40,6 +50,7 @@ public class Home extends Fragment {
     RecyclerView rvproduct;
     ArrayList<product> list;
     productAdapter productadapter;
+
 
     public Home() {
         // Required empty public constructor
@@ -66,13 +77,14 @@ public class Home extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         myview = inflater.inflate(R.layout.fragment_home, container, false);
-
 
         rvproduct = myview.findViewById(R.id.rvproduct);
 
@@ -93,7 +105,6 @@ public class Home extends Fragment {
         list =getListproduct();
         productadapter = new productAdapter(list, this.getContext());
         rvproduct.setAdapter(productadapter);
-//        rvproduct.setLayoutManager(new GridLayoutManager(this, 2));
         return myview;
     }
     public void reloadData(){
@@ -128,7 +139,6 @@ public class Home extends Fragment {
             lst.add(new product(1, "POGANIC", 90500, R.drawable.thuoc1));
             lst.add(new product(0, "ĐÔNG Y", 80600, R.drawable.thuoc0));
         }
-
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this.getContext(), 1);
         rvproduct.setLayoutManager(mLayoutManager);
         productAdapter productadapter = new productAdapter(lst,this.getContext());

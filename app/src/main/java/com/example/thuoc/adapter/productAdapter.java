@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.thuoc.MainActivity;
 import com.example.thuoc.R;
 import com.example.thuoc.activity.chitietactivity;
+import com.example.thuoc.fragment.Giohang;
+import com.example.thuoc.model.giohang;
 import com.example.thuoc.model.product;
 
 import java.util.ArrayList;
@@ -25,6 +28,7 @@ import java.util.List;
 public class productAdapter extends RecyclerView.Adapter<productAdapter.ProductViewHolder>{
     private ArrayList<product> list;
     private Context context;
+    private Giohang giohang;
 
 
 
@@ -49,17 +53,16 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         product product = list.get(position);
         holder.tenthuoc.setText(product.getName());
-        holder.gia.setText((int)product.getPrice() + " đ");
-
-//        holder.gia.setText(String.valueOf(product.getPrice()+ " đ"));
+        holder.gia.setText(String.format("%.3f",product.getPrice()) + " đ");
         holder.img.setImageResource(product.getRes());
 
         holder.itemView.setOnClickListener(v -> {
-//            Toast.makeText(context, product.getName(), Toast.LENGTH_SHORT).show();
             Intent detailIntent = new Intent(context, chitietactivity.class);
             detailIntent.putExtra("thuoc", product);
             context.startActivity(detailIntent);
+
         });
+
 
     }
 
@@ -67,15 +70,17 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProductV
     public int getItemCount() {
         return list.size();
     }
-    public class ProductViewHolder extends RecyclerView.ViewHolder{
+    public static class ProductViewHolder extends RecyclerView.ViewHolder{
         TextView tenthuoc;
         TextView gia;
-        ImageView img;
+        ImageView img ;
+        Button btnThem;
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             tenthuoc = (TextView) itemView.findViewById(R.id.tv_tenthuoc);
             gia = (TextView)itemView.findViewById(R.id.tv_gia);
             img = (ImageView) itemView.findViewById(R.id.img);
+
         }
     }
 }

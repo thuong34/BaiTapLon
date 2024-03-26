@@ -9,8 +9,19 @@ public class product implements Parcelable {
     private int id;
     private String name;
     private float price;
-
     private int res;
+    private int amount;
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public product() {
+    }
 
     public product(int id, String name, float price, int res) {
         this.id = id;

@@ -1,69 +1,65 @@
 package com.example.thuoc.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.thuoc.R;
+import com.example.thuoc.databinding.ActivityChitietspBinding;
+import com.example.thuoc.fragment.Giohang;
 import com.example.thuoc.fragment.Home;
+import com.example.thuoc.model.giohang;
 import com.example.thuoc.model.product;
+//import com.squareup.picasso.Picasso;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class chitietactivity extends AppCompatActivity {
-    TextView tensp, giasp ,mota;
-    Button btnthem;
-    ImageView imageView;
-    Toolbar toolbar;
-    product pr;
 
+    product product;
+    ActivityChitietspBinding binding;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chitietsp);
-        initView();
-        ActionToolBar();
+        binding = ActivityChitietspBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
+        ActionToolBar();
         Bundle data = getIntent().getExtras();
         if(data != null){
-            pr = data.getParcelable("thuoc");
+            product = data.getParcelable("thuoc");
+            binding.txttensanpham.setText(product.getName());
+            binding.txtgiasp.setText(String.valueOf(product.getPrice()));
+            binding.imgChitiet.setImageResource(product.getRes());
         }
 
-        if( pr != null){
+        binding.themvaogiohang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Giohang.gio.AddProduct(product);
 
-        initDaTa(pr);
-        }
-        
-    }
-
-    private void initDaTa(product thuoc) {
-//        Home home = (Home) getIntent().getSerializableExtra("chi tiet");
-        tensp.setText(thuoc.getName());
-        giasp.setText((int) thuoc.getPrice() + " đ");
-        imageView.setImageResource(thuoc.getRes());
-        btnthem.setOnClickListener(v -> {
-
+                Toast.makeText(chitietactivity.this,"Da them vao gio hang",Toast.LENGTH_LONG).show();
+            }
         });
 
+    }
 
-    }
-    private void initView(){
-        tensp = findViewById(R.id.txttensanpham);
-        giasp =findViewById(R.id.txtgiasp);
-        mota = findViewById(R.id.txtmotachitiet);
-        btnthem  = findViewById(R.id.themvaogiohang);
-        imageView = findViewById(R.id.img_chitiet);
-        toolbar = findViewById(R.id.toolbar);
-    }
+
     private void ActionToolBar(){
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

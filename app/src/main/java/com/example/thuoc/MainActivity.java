@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.thuoc.adapter.productAdapter;
+import com.example.thuoc.fragment.Giohang;
 import com.example.thuoc.fragment.Home;
 import com.example.thuoc.fragment.fragmentAdapter;
 import com.example.thuoc.model.product;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView mNavigationView;
     ViewPager viewpager;
+
+
 
 
     @Override
