@@ -3,35 +3,18 @@ package com.example.thuoc;
 
 import android.os.Bundle;
 
-import android.view.Menu;
-
 import android.view.MenuItem;
-import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.thuoc.adapter.productAdapter;
-import com.example.thuoc.fragment.Giohang;
-import com.example.thuoc.fragment.Home;
+import com.example.thuoc.fragment.trangchufragment;
 import com.example.thuoc.fragment.fragmentAdapter;
-import com.example.thuoc.model.product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -65,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     case 0:
                         mNavigationView.getMenu().findItem(R.id.trangchu).setChecked(true);
-                        Home home = (Home) viewpager.getAdapter().instantiateItem(viewpager,0);
+                        trangchufragment home = (trangchufragment) viewpager.getAdapter().instantiateItem(viewpager,0);
                         home.reloadData();
                         break;
                     case 1:

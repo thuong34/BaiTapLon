@@ -11,10 +11,10 @@ import com.example.thuoc.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link thongbao#newInstance} factory method to
+ * Use the {@link thongbaofragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class thongbao extends Fragment {
+public class thongbaofragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +25,7 @@ public class thongbao extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public thongbao() {
+    public thongbaofragment() {
         // Required empty public constructor
     }
 
@@ -38,8 +38,8 @@ public class thongbao extends Fragment {
      * @return A new instance of fragment Home.
      */
     // TODO: Rename and change types and number of parameters
-    public static thongbao newInstance(String param1, String param2) {
-        thongbao fragment = new thongbao();
+    public static thongbaofragment newInstance(String param1, String param2) {
+        thongbaofragment fragment = new thongbaofragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

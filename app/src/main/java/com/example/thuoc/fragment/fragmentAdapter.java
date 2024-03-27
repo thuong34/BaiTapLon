@@ -15,12 +15,12 @@ public class fragmentAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position)
         {
-            case 0: return new Home();
-            case 1: return new Uudai();
-            case 2: return new Giohang();
-            case 3: return new thongbao();
-            case 4: return new taikhoan();
-            default: return new Home();
+            case 0: return new trangchufragment();
+            case 1: return new uudaifragment();
+            case 2: return new giohangfragment();
+            case 3: return new thongbaofragment();
+            case 4: return new taikhoanfragment();
+            default: return new trangchufragment();
         }
     }
 

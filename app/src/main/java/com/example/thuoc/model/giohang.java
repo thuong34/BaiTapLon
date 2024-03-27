@@ -1,12 +1,15 @@
 package com.example.thuoc.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class giohang {
+
     ArrayList<product> listProduct=new ArrayList<>();
 
-    float totalprice=0;
+  float totalprice=0;
     public giohang(){
+
 
     }
 
@@ -19,19 +22,35 @@ public class giohang {
     }
 
     public void AddProduct(product p) {
-        this.listProduct.add(p);
+        boolean isProductExist = false;
+        for (product item : listProduct) {
+            if (item.getId() == p.getId()) {
+                int newQuantity = item.getAmount() + 1;
+                item.setAmount(newQuantity);
+                isProductExist = true;
+                break;
+            }
+        }
+        if (!isProductExist) {
+            listProduct.add(p);
+        }
         totalprice+=p.getPrice();
     }
     public void RemoveProduct(product p){
-        this.listProduct.remove(p);
-        totalprice-=p.getPrice();
+        listProduct.remove(p);
+        totalprice -=  p.getPrice();
     }
 
     public float getTotalprice() {
+
         return totalprice;
     }
 
     public void setTotalprice(int totalprice) {
         this.totalprice = totalprice;
     }
+
+
+
+
 }

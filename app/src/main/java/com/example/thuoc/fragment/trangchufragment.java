@@ -1,10 +1,7 @@
 package com.example.thuoc.fragment;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -13,28 +10,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.thuoc.MainActivity;
 import com.example.thuoc.R;
 import com.example.thuoc.adapter.productAdapter;
 import com.example.thuoc.model.product;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.List;
-import androidx.appcompat.app.AppCompatActivity;
-
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 
 
-public class Home extends Fragment {
+public class trangchufragment extends Fragment {
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -52,7 +37,7 @@ public class Home extends Fragment {
     productAdapter productadapter;
 
 
-    public Home() {
+    public trangchufragment() {
         // Required empty public constructor
     }
 
@@ -61,8 +46,8 @@ public class Home extends Fragment {
         super.onResume();
     }
 
-    public static Home newInstance(String param1, String param2) {
-        Home fragment = new Home();
+    public static trangchufragment newInstance(String param1, String param2) {
+        trangchufragment fragment = new trangchufragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

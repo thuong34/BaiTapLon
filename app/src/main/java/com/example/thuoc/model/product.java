@@ -10,7 +10,7 @@ public class product implements Parcelable {
     private String name;
     private float price;
     private int res;
-    private int amount;
+    private int amount =1;
 
     public int getAmount() {
         return amount;

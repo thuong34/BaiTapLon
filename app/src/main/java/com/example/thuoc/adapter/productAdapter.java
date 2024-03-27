@@ -2,35 +2,26 @@ package com.example.thuoc.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.thuoc.MainActivity;
 import com.example.thuoc.R;
 import com.example.thuoc.activity.chitietactivity;
-import com.example.thuoc.fragment.Giohang;
-import com.example.thuoc.model.giohang;
+import com.example.thuoc.fragment.giohangfragment;
 import com.example.thuoc.model.product;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class productAdapter extends RecyclerView.Adapter<productAdapter.ProductViewHolder>{
     private ArrayList<product> list;
     private Context context;
-    private Giohang giohang;
-
-
 
     public void setFilterList(ArrayList<product> filterList){
         this.list=filterList;
@@ -62,8 +53,6 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProductV
             context.startActivity(detailIntent);
 
         });
-
-
     }
 
     @Override
@@ -74,7 +63,6 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProductV
         TextView tenthuoc;
         TextView gia;
         ImageView img ;
-        Button btnThem;
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             tenthuoc = (TextView) itemView.findViewById(R.id.tv_tenthuoc);
