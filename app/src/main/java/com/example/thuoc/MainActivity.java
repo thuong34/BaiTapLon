@@ -1,6 +1,10 @@
 package com.example.thuoc;
 
 
+import android.content.BroadcastReceiver;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
 import android.view.MenuItem;
@@ -12,15 +16,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.thuoc.BroadcartReceiver.Battery;
+import com.example.thuoc.BroadcartReceiver.Internet;
 import com.example.thuoc.fragment.trangchufragment;
 import com.example.thuoc.fragment.fragmentAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+
+
 
 
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView mNavigationView;
     ViewPager viewpager;
+    private Internet internet;
+    private Battery pinyeu;
 
 
 
@@ -34,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentAdapter adapter = new fragmentAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewpager.setAdapter(adapter);
         viewpager.setOffscreenPageLimit(2);
-
-
         viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -94,7 +103,27 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+        internet = new Internet();
+        pinyeu = new Battery();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(internet, intentFilter);
+        //Pin yeu
+        IntentFilter filter = new IntentFilter(Intent.ACTION_BATTERY_LOW);
+        registerReceiver(pinyeu, filter);
 
 
+    }
 
-}}
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(internet);
+        unregisterReceiver(pinyeu);
+    }
+}
