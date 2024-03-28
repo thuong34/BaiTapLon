@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,30 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Thuoc"
         tools:targetApi="31">
-
-
-        <activity android:name=".activity.chitietactivity"
-            android:exported="true">
-
-        </activity>
-
-
+        <activity
+            android:name=".UserManage.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserManage.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.chitietactivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-<!--        <receiver android:name=".BroadcartReceiver.Internet"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />-->
-<!--            </intent-filter>-->
-<!--        </receiver>-->
 
+        </activity>
     </application>
 
 </manifest>

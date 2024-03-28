@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserManage.LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_login"
+        android:layout_width="398dp"
+        android:layout_height="415dp"
+        android:layout_marginTop="168dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size10dp"
+            android:paddingLeft="@dimen/size10dp"
+            android:text="Chào mừng đến với Tiệm thuốc"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size10dp"
+            android:paddingLeft="@dimen/size10dp"
+            android:text="Đăng nhập"
+            android:textColor="@color/xanhbien"
+            android:textSize="17dp" />
+
+        <EditText
+            android:id="@+id/edPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size10dp"
+            android:layout_marginVertical="20dp"
+            android:drawableLeft="@drawable/nhap"
+            android:drawablePadding="@dimen/size10dp"
+            android:ems="10"
+            android:hint="Nhập số điện thoại"
+            android:inputType="text"
+            android:padding="@dimen/size10dp" />
+
+        <EditText
+            android:id="@+id/edPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size10dp"
+            android:drawableLeft="@drawable/key"
+            android:drawablePadding="@dimen/size10dp"
+            android:ems="10"
+            android:hint="Nhập mật khẩu"
+            android:inputType="text"
+            android:padding="@dimen/size10dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/size10dp"
+            android:padding="@dimen/size10dp"
+            android:text="Quên mật khẩu?"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/xanh"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size10dp"
+            android:backgroundTint="@color/xanh"
+            android:padding="@dimen/size10dp"
+            android:text="Đăng nhập"
+            android:textSize="17dp" />
+
+        <LinearLayout
+            android:id="@+id/layout_register"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/size10dp">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Để nhận nhiều ưu đãi hấp dẫn," />
+
+            <TextView
+                android:id="@+id/tvRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:text="Đăng ký ngay"
+                android:textColor="@color/xanh"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="90dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="48dp"
+        android:padding="@dimen/size10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+</androidx.constraintlayout.widget.ConstraintLayout>
